@@ -1,84 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import styles from './HomeScreenStyles'; // Asegúrate de que la ruta al archivo de estilos es correcta
 
-function HomeScreen({ navigation }) {
-  const goToFriends = () => {
+export default function HomeScreen({ navigation }) {
+  const [visits, setVisits] = useState(0);
+
+  const handlePress = () => {
+    setVisits(visits + 1);
     navigation.navigate('Friends');
-  };
-
-  const goToMarvelCharacters = () => {
-    navigation.navigate('Marvel Characters');
   };
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Bienvenido</Text>
+        <Text style={styles.headerText}>Home Screen</Text>
       </View>
-      
+
+      {/* Contenido central */}
       <View style={styles.content}>
-        <Text style={styles.title}>Home Screen</Text>
+        <Text style={styles.title}>Visitas a tus amigos: {visits}</Text>
         <Button
           title="Ve a ver tus amigos"
-          onPress={goToFriends}
-          color="#1e90ff"
-        /> 
+          onPress={handlePress}
+          style={styles.button} // Estilo aplicado al botón (asegúrate que React Native Button acepta este estilo directamente)
+        />
         <Button
           title="Ver personajes de Marvel"
-          onPress={goToMarvelCharacters}
-          color="#FF0000"
+          onPress={() => navigation.navigate('Marvel Characters')}
+          color="red" // Esto colorea el texto del botón en iOS, para Android puedes requerir ajustes adicionales
         />
       </View>
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>© 2024 Mi Aplicación</Text>
-      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',  // Asegura que el header y footer estén en los extremos
-  },
-  button:{
-  padding: 100,
-  },
-  header: {
-    height: 60,
-    width: '100%',
-    backgroundColor: '#4682b4',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerText: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  footer: {
-    height: 50,
-    width: '100%',
-    backgroundColor: '#4682b4',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footerText: {
-    color: 'white',
-    fontSize: 16,
-  }
-});
-
-export default HomeScreen;

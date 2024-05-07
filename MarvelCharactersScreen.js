@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
         width: moderateScale(100),
         height: moderateScale(100),
         marginRight: moderateScale(10),
-        borderRadius: moderateScale(50) // Circular images
+        borderRadius: moderateScale(50), // Circular images
+        borderColor: "red" ,
     },
     textContainer: {
         flex: 1,
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: moderateScale(18),
         fontWeight: 'bold',
+        color : "red",
         marginBottom: moderateScale(5)
     },
     description: {
