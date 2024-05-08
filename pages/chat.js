@@ -5,6 +5,7 @@ export default  function chatScreen({ navigation }) {
   return (
     <View>
         <Text>hola mundo</Text>
+        <Image> </Image>
     </View>
   )
 }
