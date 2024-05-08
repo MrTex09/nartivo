@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import styles from './HomeScreenStyles'; // Asegúrate de que la ruta al archivo de estilos es correcta
 
+// Definición del componente HomeScreen
 export default function HomeScreen({ navigation }) {
   const [visits, setVisits] = useState(0);
 
@@ -14,24 +14,74 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Home Screen</Text>
+        <Text style={styles.headerText}>Pantalla Principal</Text>
       </View>
 
       {/* Contenido central */}
-      <View style={styles.content}>
+      <View style={styles.content}>     
         <Text style={styles.title}>Visitas a tus amigos: {visits}</Text>
-        <Button
-          title="Ve a ver tus amigos"
-          onPress={handlePress}
-          style={styles.button} // Estilo aplicado al botón (asegúrate que React Native Button acepta este estilo directamente)
-        />
-        <Button
-          title="Ver personajes de Marvel"
-          onPress={() => navigation.navigate('Marvel Characters')}
-          color="red" // Esto colorea el texto del botón en iOS, para Android puedes requerir ajustes adicionales
-        />
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Ve a ver tus amigos"
+            onPress={handlePress}
+            color={styles.friendsButton.color} // Color del botón
+          />
+          <Button
+            title="Ve al chat"
+            onPress={() => navigation.navigate('Chat')}
+            color={styles.friendsButton.color} // Color del botón
+          />
+          <Button 
+            title="Ver personajes de Marvel"
+            onPress={() => navigation.navigate('Marvel Characters')}
+            color={styles.marvelButton.color} // Color del botón
+          />
+        </View>
       </View>
-
     </View>
   );
 }
+
+// Estilos
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  header: {
+    height: 60,
+    width: '100%',
+    backgroundColor: '#4682b4',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    margin: 10,
+  },
+  content: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: 'row', // Ajusta los botones horizontalmente
+    justifyContent: 'space-around', // Espaciado entre botones
+    width: '100%', // Asegura que el contenedor utilice todo el ancho disponible
+    paddingHorizontal: 0, // Añade algo de espacio horizontalmente
+  },
+  friendsButton: {
+    color: "blue", // Color para el botón de amigos
+  },
+  marvelButton: {
+    color: 'red', // Color para el botón de Marvel, se cambió backgroundColor por color
+  },
+});

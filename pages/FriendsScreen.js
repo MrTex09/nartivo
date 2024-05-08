@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-function FriendsScreen({ navigation }) {  // Asegúrate de pasar 'navigation' como prop
+export default function FriendsScreen({ navigation }) {  // Asegúrate de pasar 'navigation' como prop
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Lista de amigos</Text>
@@ -17,4 +17,4 @@ function FriendsScreen({ navigation }) {  // Asegúrate de pasar 'navigation' co
   );
 }
 
-export default FriendsScreen;
+
