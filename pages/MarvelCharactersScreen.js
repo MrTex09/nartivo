@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, StyleSheet, ActivityIndicator, Button } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, ActivityIndicator, Button, Linking } from 'react-native';
 import axios from 'axios';
 import md5 from 'md5';
 import { moderateScale } from 'react-native-size-matters';
@@ -16,7 +16,7 @@ function MarvelCharactersScreen({ navigation }) {  // Asegúrate de que navigati
         const hash = md5(timestamp + privateKey + publicKey);
         // Generar un número aleatorio para empezar la paginación
         const offset = Math.floor(Math.random() * 1500); // Asumiendo que hay más de 1500 personajes disponibles
-        const url = `https://gateway.marvel.com:443/v1/public/characters?limit=10&offset=${offset}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+        const url = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=${offset}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
         axios.get(url)
             .then(response => {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         width: moderateScale(100),
         height: moderateScale(100),
         marginRight: moderateScale(10),
-        borderRadius: moderateScale(50), // Circular images
+ // Circular images
         borderColor: "red" ,
     },
     textContainer: {
