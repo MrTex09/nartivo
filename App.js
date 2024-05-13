@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
-import FriendsScreen from './FriendsScreens'; 
-import MarvelCharactersScreen from './MarvelCharactersScreen'; 
+import FriendsScreen from './pages/FriendsScreens'; 
+import MarvelCharactersScreen from './pages/MarvelCharactersScreen'; 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
