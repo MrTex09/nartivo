@@ -7,7 +7,7 @@ import { moderateScale } from 'react-native-size-matters';
 const publicKey = '6a0b1ca7ed770776ae2faa4000bdc5f9';
 const privateKey = 'c999346c10201352829367f07c7089bd74b03a30';
 
-function MarvelCharactersScreen({ navigation }) {  // Asegúrate de que navigation sea pasado como prop
+function MarvelCharactersScreen({ navigation }) {  
     const [characters, setCharacters] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -15,8 +15,8 @@ function MarvelCharactersScreen({ navigation }) {  // Asegúrate de que navigati
         const timestamp = new Date().getTime();
         const hash = md5(timestamp + privateKey + publicKey);
         // Generar un número aleatorio para empezar la paginación
-        const offset = Math.floor(Math.random() * 1500); // Asumiendo que hay más de 1500 personajes disponibles
-        const url = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=${offset}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+        const offset = Math.floor(Math.random() * 1500); 
+        const url = `https://gateway.marvel.com:443/v1/public/characters?limit=10&offset=${offset}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 
         axios.get(url)
             .then(response => {
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
         width: moderateScale(100),
         height: moderateScale(100),
         marginRight: moderateScale(10),
- // Circular images
         borderColor: "red" ,
     },
     textContainer: {
