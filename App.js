@@ -6,7 +6,7 @@ import HomeScreen from './HomeScreen';
 import FriendsScreen from './pages/FriendsScreen';
 import MarvelCharactersScreen from './pages/MarvelCharactersScreen';
 import MarvelIcon from './MarvelIcon';
-import chatScreen from './pages/chat';
+import usersScreen from './pages/users';
 const Tab = createBottomTabNavigator();
 
 function App() {
@@ -38,11 +38,11 @@ function App() {
           }}
         />
         <Tab.Screen 
-          name="Chat" 
-          component={chatScreen}  // Asegúrate de tener el componente correcto aquí si 'Chat' es diferente de 'FriendsScreen'
+          name="users" 
+          component={usersScreen}  // Asegúrate de tener el componente correcto aquí si 'users' es diferente de 'FriendsScreen'
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Icon name="chat" size={size} color={color} />
+              <Icon name="users" size={size} color={color} />
             ),
           }}
         />

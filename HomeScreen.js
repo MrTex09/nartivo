@@ -27,8 +27,8 @@ export default function HomeScreen({ navigation }) {
             color={styles.friendsButton.color} // Color del botón
           />
           <Button
-            title="Ve al chat"
-            onPress={() => navigation.navigate('Chat')}
+            title="Ve al users"
+            onPress={() => navigation.navigate('users')}
             color={styles.friendsButton.color} // Color del botón
           />
           <Button 
